@@ -1,6 +1,6 @@
 Funções que o Software deverá ter
 
-Adicionar o numero de jogadores que Irão Participar.
+Cadastrar o numero de jogadores que Irão Participar, informando nome e idade.
 
 Sistema gera a chave do campeonato com base no numero de participantes definidos anteriormente.
 
