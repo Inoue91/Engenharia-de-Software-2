@@ -7,7 +7,7 @@ public class Humano extends Jogador{
     public Humano(int jogador){
         super(jogador);
         this.jogador = jogador;
-        System.out.println("Jogador 'Humano' criado!");
+        System.out.println("Participante: " + this.getNome());
     }
     
     @Override
