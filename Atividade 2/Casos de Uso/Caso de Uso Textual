@@ -1,26 +1,32 @@
 Caso de Uso Textual: Jogo da Velha
 
-Cenário de Sucesso Princiapal:
+Caso de Uso: Definir quantidade de Jogadores
 
-1. O Funcionário define a quantidade de jogadores que o campeonato de jogo da velha ira ter.
+1. Os jogadores jogam até o local do torneio.
 
-2. Os jogadores chegam até o local em que a partidade será realizada e diz ao funcionário que quer participar do campeonato de jogo da velha.
-
-3. O Funcionário cadastra todos os jogadores no sistema.
-
-4.O sistema faz o sorteio de todas as chaves do campeonato.
-
-5. O Sistema verifica a chave atual, e chama os respectivos jogadores para realizar a partidada. Será realizada uma unica partida entre os jogadores, até que haja um vencedor. Será realizada apenas uma partida por vez.
-
-6. O jogador definido como jogador 1, inicia a  partida.
-
-7. O Sistema verifica o vencedor, e o avança na chave.
-
-8. Após todos os jogos serem realizados, e o sistema ver que não tem mais jogos, a dispota entre os dois perdedores das semi-finais será realizada, para a disputa do 3 colocado.
-
-9. Com a informação do vencedor da disputa final e o vencedor da dipusta para o terceiro colocado, o sistema gera um podium, mostrando na tela os jogadores que ficaram em primeiro, segundo e terceiro lugar.
+2. O usuario define no sistema a quantidade de jogadores que participarão do torneio.
 
 
-Fluxo Alternativo:
+Caso de Uso: Cadastrar Jogadores
 
-6.1: Caso a partida seja interrompida e o programa feche, os jogadores poderão voltar a partida que estava sendo realizada, abrindo novamente o programa.
+1. O Usuraio cadastra o nome e idade de todos os jogadores no sistema.
+
+
+Caso de Uso: Iniciar Partida
+
+1. O sistema verifica a quantidade de jogadores cadastrados.
+
+2. O sistema sorteia todas as chaves do campeonato.
+
+3. O Sistema verifica a chave atual, e chama os respectivos jogadores para realizar a partidada. Será realizada uma unica partida entre os jogadores, até que haja um vencedor. Será realizada apenas uma partida por vez.
+
+4. Ao terminar uma partida, o sistema chama os proximos jogadores
+
+
+Caso de Uso: Jogar Partida
+
+1. O jogador definido como jogador 1, inicia a  partida.
+
+2. A cada jogada realizada, o sistema salva o estado atual da partida.
+
+3.Após ser realizada a ultima partida, o sistema gera um podium, indicando os jogadores que ficaram em primeiro, segundo e terceiro lugar.
