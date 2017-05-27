@@ -6,23 +6,27 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public final class Cadastro {
+public final class Cadastro{
     
     private int quantidade;
     private String jogador;
     public Scanner sc = new Scanner(System.in);
+    List <String> nomeJogador = new ArrayList();
     
     public Cadastro() throws IOException{
         receberQuantidade();
         cadastrarJogador();
-        lerJogador();
+        //lerJogador();
     }
     
-    public void receberQuantidade(){
+    public int receberQuantidade(){
         System.out.println("Digite a quantidade de participantes: ");
         quantidade = sc.nextInt();
+        return quantidade;
     }
     public void cadastrarJogador() throws IOException{
         FileWriter fw = new FileWriter("entrada.txt"); //abertura para escrita do arquivo
@@ -41,11 +45,19 @@ public final class Cadastro {
         BufferedReader br = new BufferedReader(fr);
         
         String linha = br.readLine();
+        //List <String> nomeJogador = new ArrayList();
         
+        //nomeJogador.add(linha);
         while(linha!= null){
-            System.out.println(linha);
+            nomeJogador.add(linha);
+            for(String nome:nomeJogador){
+            System.out.println(nome);
+            }
             linha = br.readLine();
         }
         br.close();
+    }
+    public List<String> obterNome(){
+        return nomeJogador;
     }
 }

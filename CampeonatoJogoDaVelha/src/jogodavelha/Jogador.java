@@ -16,6 +16,8 @@ public abstract class Jogador {
         this.jogador = jogador;
     }
     
+ 
+    
     public abstract void jogar(Tabuleiro tabuleiro);
     
     public abstract void Tentativa(Tabuleiro tabuleiro);

@@ -12,7 +12,9 @@ public class JogoDaVelha {
         PrintWriter pw = new PrintWriter(fw);
         
         Cadastro cadastro = new Cadastro();
-        Jogo jogo = new Jogo();
+        //System.out.println(cadastro.obterNome().);
+        
+       Jogo jogo = new Jogo();
         
     }
     
