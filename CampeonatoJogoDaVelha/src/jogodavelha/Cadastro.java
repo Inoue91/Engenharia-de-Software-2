@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,7 +21,7 @@ public final class Cadastro{
     public Cadastro() throws IOException{
         receberQuantidade();
         cadastrarJogador();
-        //lerJogador();
+        lerJogador();
     }
     
     public int receberQuantidade(){
@@ -39,24 +40,23 @@ public final class Cadastro{
         }
         pw.close();
     }
-    
     public void lerJogador() throws FileNotFoundException, IOException{
-        FileReader fr = new FileReader("entrada.txt"); //leitura do arquivo
+        FileReader fr = new FileReader("entrada.txt");
         BufferedReader br = new BufferedReader(fr);
+        List lista = new ArrayList();
         
         String linha = br.readLine();
-        //List <String> nomeJogador = new ArrayList();
         
-        //nomeJogador.add(linha);
-        while(linha!= null){
-            nomeJogador.add(linha);
-            for(String nome:nomeJogador){
-            System.out.println(nome);
-            }
+        while(linha != null){
+            lista.add(linha);
             linha = br.readLine();
         }
-        br.close();
+        Iterator it = lista.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
     }
+    
     public List<String> obterNome(){
         return nomeJogador;
     }

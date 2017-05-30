@@ -1,23 +1,13 @@
 package jogodavelha;
-import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
 public class Humano extends Jogador{
     public Scanner entrada = new Scanner(System.in);
-    //private final Cadastro novoCadastro;
-    private Jogador j1;
-    //public final List<String> nomeJogador;
     
     public Humano(int jogador){
         super(jogador);
         this.jogador = jogador;
-        //novoCadastro = new Cadastro();
-        //Jogador j1 = new Jogador();
-        //nomeJogador = novoCadastro.obterNome();
-        //System.out.println("Participante: " + nomeJogador);
-        //FileReader fr = new FileReader("entrada.txt"); //leitura do arquivo
-        //BufferedReader br = new BufferedReader(fr);
+        System.out.println("Jogador 'Humano' criado!");
     }
     
     @Override

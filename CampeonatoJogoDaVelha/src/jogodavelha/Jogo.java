@@ -1,6 +1,5 @@
 package jogodavelha;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Jogo {
@@ -11,14 +10,14 @@ public class Jogo {
     public Scanner entrada = new Scanner(System.in);
 
     
-    public Jogo() throws IOException{
+    public Jogo(){
         tabuleiro = new Tabuleiro();
         iniciarJogadores();
         
         while( Jogar() );
     }
     
-    public void iniciarJogadores() throws IOException{
+    public void iniciarJogadores(){
         System.out.println("Quem vai ser o Jogador 1 ?");
         if(escolherJogador() == 1)
             this.jogador1 = new Humano(1);

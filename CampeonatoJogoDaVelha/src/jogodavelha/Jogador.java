@@ -1,22 +1,13 @@
 package jogodavelha;
 public abstract class Jogador {
-    private String nome;
+    
     protected int[] tentativa = new int[2];
     protected int jogador;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
+    
     public Jogador(int jogador){
         this.jogador = jogador;
     }
-    
- 
     
     public abstract void jogar(Tabuleiro tabuleiro);
     

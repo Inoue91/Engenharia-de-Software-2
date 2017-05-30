@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package interfacejogodavelha;
+package telas;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import javax.swing.JOptionPane;
-/**
- *
- * @author Talita-csl
- */
 public class Jogo2 extends javax.swing.JFrame {
 
     /**
@@ -262,6 +265,23 @@ public class Jogo2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     Variaveis v = new Variaveis();
+    
+    public void lerJogador() throws FileNotFoundException, IOException{
+        FileReader fr = new FileReader("entrada.txt");
+        BufferedReader br = new BufferedReader(fr);
+        List lista = new ArrayList();
+        
+        String linha = br.readLine();
+        
+        while(linha != null){
+            lista.add(linha);
+            linha = br.readLine();
+        }
+        Iterator it = lista.iterator();
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+    }
     
     private void CheckWin(){
     String aux1, aux2, aux3;
