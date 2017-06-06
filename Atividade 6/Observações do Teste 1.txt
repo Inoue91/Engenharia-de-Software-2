@@ -1,0 +1,24 @@
+jLabel1 - não faz sentido
+
+(selecionamos 2 jogadores)
+A idade mantem após o cadastro de um jogador
+Nos foi pedido pra cadastrar um terceiro jogador (looping infinito)
+Permitiu que cadastrássemos sem nome
+
+O jogo permite que a gente continue jogando após declarar quem venceu
+
+Tem um -3 solto no meio do rolê (número de cadastrados disponíveis continua aparecendo na tela do jogo)
+
+Txts "entrada" e "ganhador" criados sem explicação, era pra criar mesmo?
+
+Exception criada travou o jogo completamente. Eu apertei ctrl+C para parar o jogo e mais duas exceptions foram lançadas, iguais à anterior. O jogo destravou, porém, exceptions continuaram a surgir (iguais às anteriores) a cada movimento no jogo. O vencedor não foi anunciado.
+
+Outra exception foi lançada quando clicado em "próximo jogo" quando deveria encerrar.
+
+Não houve popup ao "dar velha".
+Não houve lista de jogadores antes do início das partidas.
+
+Permite voltar e cadastrar mais jogadores mesmo após o início das partidas.
+
+(selecionamos 4/8 jogadores)
+O jogo continuou não se encerrando e todos os problemas persistiram.
