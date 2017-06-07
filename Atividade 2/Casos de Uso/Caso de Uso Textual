@@ -4,7 +4,7 @@ Caso de Uso: Definir quantidade de Jogadores
 
 1. Os jogadores jogam até o local do torneio.
 
-2. O usuario define no sistema a quantidade de jogadores que participarão do torneio.
+2. O usuario escolhe no sistema a quantidade de jogadores (2, 4 ou 8) que participarão do torneio.
 
 
 Caso de Uso: Cadastrar Jogadores
