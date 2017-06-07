@@ -176,6 +176,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
         }
+        jogo.setLocationRelativeTo(null);
         jogo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnStartActionPerformed
@@ -186,7 +187,6 @@ public class TelaCadastro extends javax.swing.JFrame {
             FileReader fr = new FileReader("entrada.txt");
             BufferedReader br = new BufferedReader(fr);
             List lista = new ArrayList();
-            String mensagem = "Fim";
         String linha = br.readLine();
         
         while(linha != null){
@@ -194,9 +194,6 @@ public class TelaCadastro extends javax.swing.JFrame {
             linha = br.readLine();
         }
         Iterator it = lista.iterator();
-        if(it == null)
-            return mensagem;
-        else
             return lista.get(i).toString();
     }
     /**

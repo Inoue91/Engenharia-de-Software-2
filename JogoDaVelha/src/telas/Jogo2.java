@@ -214,7 +214,7 @@ public class Jogo2 extends javax.swing.JFrame {
                     .addComponent(TF7, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TF8, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TF9, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         btnProx.setText("Proximo jogo");
@@ -260,7 +260,7 @@ public class Jogo2 extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(147, 147, 147)
+                .addGap(130, 130, 130)
                 .addComponent(lblJogador1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
@@ -278,13 +278,14 @@ public class Jogo2 extends javax.swing.JFrame {
                     .addComponent(lblJogador2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProx)
                     .addComponent(btnVoltar)
-                    .addComponent(btnClean)))
+                    .addComponent(btnClean))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -298,8 +299,8 @@ public class Jogo2 extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(3, 3, 3))
         );
 
         pack();
@@ -307,7 +308,7 @@ public class Jogo2 extends javax.swing.JFrame {
 
     private void btnProxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProxActionPerformed
         try {
-            int vencedor = quantidadeVencedor(),inicial = quantidadeArquivo();
+            int vencedor = quantidadeVencedor(),inicial = quantidadeArquivo(),perdedor = quantidadePerdedor();
             TF1.setText("");
             TF2.setText("");
             TF3.setText("");
@@ -318,16 +319,91 @@ public class Jogo2 extends javax.swing.JFrame {
             TF8.setText("");
             TF9.setText("");
             
-            apagarTxt();
-            if(inicial != 0){
-                lblJogador1.setText(lerJogador(0));
-                lblJogador2.setText(lerJogador(1));
+            if(inicial == 2 && vencedor == 1){      // Condição para 2 jogadores
+                apagarTxt();
+                System.out.println(vencedor);
+                System.out.println(inicial);
+                inicial = quantidadeArquivo();
+                vencedor = quantidadeVencedor();
             }
-            if(vencedor == 1 && inicial == 0 ){
+            if(vencedor == 1 && inicial == 0 ){  ;// Gerador do podium para 2 jogadores
                 Podium podium = new Podium();
                 podium.setVisible(true);
                 this.dispose();
             }
+            if(inicial == 4 && vencedor == 1){  // primeira entrada 4 jogadores
+                apagarTxt();
+                lblJogador1.setText(lerJogador(0));
+                lblJogador2.setText(lerJogador(1));
+                inicial = quantidadeArquivo();
+                vencedor = quantidadeVencedor();
+            }
+            if(inicial == 2 && vencedor == 2){  // segunda entrada 4 jogadores
+                apagarTxt();
+                lblJogador1.setText(lerJogador(0));
+                lblJogador2.setText(lerJogador(1));
+                inicial = quantidadeArquivo();
+                vencedor = quantidadeVencedor();
+                perdedor = quantidadePerdedor();
+            }
+            if(inicial == 0 && vencedor == 3 && perdedor < 3){ //Gerador de podium para 4 jogadores
+                System.out.println(" perdedor: " + perdedor);
+                apagarGanhador();
+                Podium podium = new Podium();
+                podium.setVisible(true);
+                this.dispose();
+            }
+            if(inicial == 8 && vencedor == 1){  // primeira entrada 8 jogadores
+                apagarTxt();
+                lblJogador1.setText(lerJogador(0));
+                lblJogador2.setText(lerJogador(1));
+                inicial = quantidadeArquivo();
+                vencedor = quantidadeVencedor();
+            }
+            if(inicial == 6 && vencedor == 2){  // primeira entrada 8 jogadores
+                apagarTxt();
+                lblJogador1.setText(lerJogador(0));
+                lblJogador2.setText(lerJogador(1));
+                inicial = quantidadeArquivo();
+                vencedor = quantidadeVencedor();
+            }
+            if(inicial == 4 && vencedor == 3){  // primeira entrada 8 jogadores
+                apagarTxt();
+                lblJogador1.setText(lerJogador(0));
+                lblJogador2.setText(lerJogador(1));
+                inicial = quantidadeArquivo();
+                vencedor = quantidadeVencedor();
+                System.out.println("inicial:" + inicial);
+                System.out.println("vencedor" + vencedor);
+            }
+            if(inicial == 2 && vencedor == 4){  // primeira entrada 8 jogadores
+                apagarTxt();
+                lblJogador1.setText(lerJogador(0));
+                lblJogador2.setText(lerJogador(1));
+                inicial = quantidadeArquivo();
+                vencedor = quantidadeVencedor();
+                System.out.println("inicial:" + inicial);
+                System.out.println("vencedor" + vencedor);
+            }
+            if(inicial == 0 && vencedor == 5){  // primeira entrada 8 jogadores
+                apagarGanhador();
+                lblJogador1.setText(lerJogador(0));
+                lblJogador2.setText(lerJogador(1));
+                inicial = quantidadeArquivo();
+                vencedor = quantidadeVencedor();
+                System.out.println("inicial:" + inicial);
+                System.out.println("vencedor" + vencedor);
+                
+            }
+            if(inicial == 0 && vencedor == 2){  // primeira entrada 8 jogadores
+                apagarGanhador();
+                lblJogador1.setText(lerJogador(0));
+                lblJogador2.setText(lerJogador(1));
+                inicial = quantidadeArquivo();
+                vencedor = quantidadeVencedor();
+                System.out.println("entrou");
+            }
+            
             }catch (IOException ex) {
                 Logger.getLogger(Jogo2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -783,14 +859,14 @@ public class Jogo2 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCleanActionPerformed
     public void darFoco(){
         btnVoltar.requestFocus();
-
     }
+    
     Variaveis v = new Variaveis();
+    
     public String lerJogador(int i) throws FileNotFoundException, IOException{
         FileReader fr = new FileReader("entrada.txt");
         BufferedReader br = new BufferedReader(fr);
         List lista = new ArrayList();
-        String mensagem = "Jogos finalizados";
         String linha = br.readLine();
         
         if(linha == null){
@@ -799,19 +875,19 @@ public class Jogo2 extends javax.swing.JFrame {
             String linha2 = br2.readLine();
             while(linha2 != null){
                 lista.add(linha2);
-                linha2 = br.readLine();
+                linha2 = br2.readLine();
             }
+            br2.close();
         }
-        
         while(linha != null){
             lista.add(linha);
             linha = br.readLine();
         }
+        br.close();
+        
         Iterator it = lista.iterator();
-        if(lista.get(i).toString() == null)
-            return mensagem;
-        else    
-            return lista.get(i).toString();
+        
+        return lista.get(i).toString();
     }
     public void guardarVencedor(String Jogador) throws IOException{
         FileWriter fw = new FileWriter("ganhador.txt",true);
@@ -835,6 +911,34 @@ public class Jogo2 extends javax.swing.JFrame {
                 
         ArrayList <String> salvar = new ArrayList();
         while(linha != null){
+            if(linha.equals(lerJogador(0)) == false && linha.equals(lerJogador(1)) == false ){
+                salvar.add(linha);
+           }
+           linha = br.readLine();
+        }
+        br.close();
+        fr.close();
+        
+        FileWriter fw2 = new FileWriter("entrada.txt",true);
+        fw2.close();
+        
+        FileWriter fw = new FileWriter("entrada.txt");
+        BufferedWriter pw = new BufferedWriter(fw);
+        for(int i= 0; i < salvar.size();i++){
+            pw.write(salvar.get(i));
+            pw.newLine();
+        }
+        pw.close();
+        fw.close();
+    }
+    public void apagarGanhador() throws FileNotFoundException, IOException{
+        FileReader fr = new FileReader("ganhador.txt");
+        BufferedReader br = new BufferedReader(fr);
+        
+        String linha = br.readLine();
+                
+        ArrayList <String> salvar = new ArrayList();
+        while(linha != null){
            if(linha.equals(lerJogador(0)) == false && linha.equals(lerJogador(1)) == false ){
                salvar.add(linha);
                }
@@ -845,10 +949,10 @@ public class Jogo2 extends javax.swing.JFrame {
         br.close();
         fr.close();
         
-        FileWriter fw2 = new FileWriter("entrada.txt",true);
+        FileWriter fw2 = new FileWriter("ganhador.txt",true);
         fw2.close();
         
-        FileWriter fw = new FileWriter("entrada.txt");
+        FileWriter fw = new FileWriter("ganhador.txt");
         BufferedWriter pw = new BufferedWriter(fw);
         for(int i= 0; i < salvar.size();i++){
             pw.write(salvar.get(i));
@@ -867,6 +971,7 @@ public class Jogo2 extends javax.swing.JFrame {
             num+=1;
             linha = br.readLine();
         }
+        br.close();
         return num;
     }
      public int quantidadeVencedor() throws FileNotFoundException, IOException{
@@ -879,9 +984,23 @@ public class Jogo2 extends javax.swing.JFrame {
             num+=1;
             linha = br.readLine();
         }
+        br.close();
         return num;
     }
-    
+    public int quantidadePerdedor() throws FileNotFoundException, IOException{
+        FileReader fr = new FileReader("perdedor.txt");
+        BufferedReader br = new BufferedReader(fr);
+        int num = 0;
+        String linha = br.readLine();
+       
+        while(linha != null){
+            num+=1;
+            linha = br.readLine();
+        }
+        br.close();
+        return num;
+    }
+     
     private void CheckWin() throws FileNotFoundException, IOException{
     String aux1, aux2, aux3;
     String aux4, aux5, aux6;
@@ -892,8 +1011,8 @@ public class Jogo2 extends javax.swing.JFrame {
     aux7 = TF7.getText(); aux8 = TF8.getText(); aux9 = TF9.getText();
     
     darFoco();
-    String jogador1 = lerJogador(i);
-    String jogador2 = lerJogador(i+1);
+    String jogador1 = lerJogador(0);
+    String jogador2 = lerJogador(1);
 
     if(aux1.equals(v.xis) && aux2.equals(v.xis) && aux3.equals(v.xis)){
         JOptionPane.showMessageDialog(null,"Vencedor: "+jogador1);
