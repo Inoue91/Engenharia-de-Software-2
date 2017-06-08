@@ -5,6 +5,13 @@
  */
 package telas;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author leo
@@ -14,10 +21,21 @@ public class Podium extends javax.swing.JFrame {
     /**
      * Creates new form Podium
      */
-    public Podium() {
+    public Podium() throws IOException {
         initComponents();
+        lblCampeao.setText(lerGanhador());
     }
 
+        
+    public String lerGanhador() throws FileNotFoundException, IOException{
+        FileReader fr = new FileReader("ganhador.txt");
+        BufferedReader br = new BufferedReader(fr);
+        
+        String linha = br.readLine();
+        
+        br.close();
+        return linha;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,7 +82,7 @@ public class Podium extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(168, 168, 168)
-                        .addComponent(lblCampeao, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblCampeao, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,7 +136,11 @@ public class Podium extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Podium().setVisible(true);
+                try {
+                    new Podium().setVisible(true);
+                } catch (IOException ex) {
+                    Logger.getLogger(Podium.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

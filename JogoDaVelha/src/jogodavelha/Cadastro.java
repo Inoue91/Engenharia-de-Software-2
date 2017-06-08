@@ -41,8 +41,51 @@ public final class Cadastro{
         }
         pw.close();
     }
+    public void apagarGanhador() throws FileNotFoundException, IOException{
+        FileReader fr = new FileReader("ganhador.txt");
+        BufferedReader br = new BufferedReader(fr);
+        
+        String linha = br.readLine();
+        ArrayList <String> salvar = new ArrayList();
+        
+        while(linha != null){
+            if(linha.equals(lerGanhador(0)) == false && linha.equals(lerGanhador(1)) == false ){
+               salvar.add(linha);
+            }
+           linha = br.readLine();
+        }
+        
+        br.close();
+        fr.close();
+        
+        FileWriter fw2 = new FileWriter("ganhador.txt",true);
+        fw2.close();
+        
+        FileWriter fw = new FileWriter("ganhador.txt");
+        BufferedWriter pw = new BufferedWriter(fw);
+        for(int i= 0; i < salvar.size();i++){
+            pw.write(salvar.get(i));
+            pw.newLine();
+        }
+        pw.close();
+        fw.close();
+    }
     public String lerJogador(int i) throws FileNotFoundException, IOException{
             FileReader fr = new FileReader("entrada.txt");
+            BufferedReader br = new BufferedReader(fr);
+            List lista = new ArrayList();
+        
+        String linha = br.readLine();
+        
+        while(linha != null){
+            lista.add(linha);
+            linha = br.readLine();
+        }
+        Iterator it = lista.iterator();
+        return lista.get(i).toString();
+    }
+     public String lerGanhador(int i) throws FileNotFoundException, IOException{
+            FileReader fr = new FileReader("ganhador.txt");
             BufferedReader br = new BufferedReader(fr);
             List lista = new ArrayList();
         

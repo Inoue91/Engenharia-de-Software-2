@@ -69,7 +69,7 @@ public class Jogo2 extends javax.swing.JFrame {
         lblJogador2.setText("Player 2");
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         TF1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -217,7 +217,7 @@ public class Jogo2 extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnProx.setText("Proximo jogo");
+        btnProx.setText("Próximo jogo");
         btnProx.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProxActionPerformed(evt);
@@ -260,7 +260,7 @@ public class Jogo2 extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(130, 130, 130)
+                .addGap(140, 140, 140)
                 .addComponent(lblJogador1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
@@ -305,7 +305,13 @@ public class Jogo2 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void limparVariaveis(){
+    
+        v.o = 0;
+        v.x = 0;
+        
+    }
     private void btnProxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProxActionPerformed
         try {
             int vencedor = quantidadeVencedor(),inicial = quantidadeArquivo(),perdedor = quantidadePerdedor();
@@ -319,6 +325,8 @@ public class Jogo2 extends javax.swing.JFrame {
             TF8.setText("");
             TF9.setText("");
             
+            limparVariaveis();
+            
             if(inicial == 2 && vencedor == 1){      // Condição para 2 jogadores
                 apagarTxt();
                 System.out.println(vencedor);
@@ -328,6 +336,7 @@ public class Jogo2 extends javax.swing.JFrame {
             }
             if(vencedor == 1 && inicial == 0 ){  ;// Gerador do podium para 2 jogadores
                 Podium podium = new Podium();
+                podium.setLocationRelativeTo(null);
                 podium.setVisible(true);
                 this.dispose();
             }
@@ -346,63 +355,81 @@ public class Jogo2 extends javax.swing.JFrame {
                 vencedor = quantidadeVencedor();
                 perdedor = quantidadePerdedor();
             }
-            if(inicial == 0 && vencedor == 3 && perdedor < 3){ //Gerador de podium para 4 jogadores
+            if(inicial == 0 && vencedor == 3 && perdedor < 5){ //Gerador de podium para 4 jogadores
                 System.out.println(" perdedor: " + perdedor);
                 apagarGanhador();
                 Podium podium = new Podium();
+                podium.setLocationRelativeTo(null);
                 podium.setVisible(true);
                 this.dispose();
             }
             if(inicial == 8 && vencedor == 1){  // primeira entrada 8 jogadores
+                System.out.println("1 - inicial:" + inicial);
+                System.out.println("1 - vencedor" + vencedor);
                 apagarTxt();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
+                System.out.println("1 - inicial:" + inicial);
+                System.out.println("1 - vencedor" + vencedor);
             }
-            if(inicial == 6 && vencedor == 2){  // primeira entrada 8 jogadores
+            if(inicial == 6 && vencedor == 2){  // segunda entrada 8 jogadores
+                
+                System.out.println("2 - inicial:" + inicial);
+                System.out.println("2 - vencedor" + vencedor);
                 apagarTxt();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
+                System.out.println("2 - inicial:" + inicial);
+                System.out.println("2 - vencedor" + vencedor);
             }
-            if(inicial == 4 && vencedor == 3){  // primeira entrada 8 jogadores
+            if(inicial == 4 && vencedor == 3){  // terceira entrada 8 jogadores
+                System.out.println("3 - inicial:" + inicial);
+                System.out.println("3 - vencedor" + vencedor);
                 apagarTxt();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
-                System.out.println("inicial:" + inicial);
-                System.out.println("vencedor" + vencedor);
+                System.out.println("3 - inicial:" + inicial);
+                System.out.println("3 - vencedor" + vencedor);
             }
-            if(inicial == 2 && vencedor == 4){  // primeira entrada 8 jogadores
+            if(inicial == 2 && vencedor == 4){  // quarta entrada 8 jogadores
+                System.out.println("4 - inicial:" + inicial);
+                System.out.println("4 - vencedor" + vencedor);
                 apagarTxt();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
-                System.out.println("inicial:" + inicial);
-                System.out.println("vencedor" + vencedor);
+                System.out.println("4 - inicial:" + inicial);
+                System.out.println("4 - vencedor" + vencedor);
             }
-            if(inicial == 0 && vencedor == 5){  // primeira entrada 8 jogadores
+            if(inicial == 0 && vencedor == 5){  // rodada dos ganhadores 8 jogadores
+                System.out.println("5 - inicial:" + inicial);
+                System.out.println("5 - vencedor" + vencedor);
                 apagarGanhador();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
-                System.out.println("inicial:" + inicial);
-                System.out.println("vencedor" + vencedor);
+                System.out.println("5 - inicial:" + inicial);
+                System.out.println("5 - vencedor" + vencedor);
                 
             }
-            if(inicial == 0 && vencedor == 2){  // primeira entrada 8 jogadores
+            /*if(inicial == 0 && vencedor == 2){  // primeira entrada 8 jogadores
+                System.out.println("6 - inicial:" + inicial);
+                System.out.println("6 - vencedor" + vencedor);
                 apagarGanhador();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
                 System.out.println("entrou");
-            }
+            }*/
             
             }catch (IOException ex) {
                 Logger.getLogger(Jogo2.class.getName()).log(Level.SEVERE, null, ex);
@@ -856,6 +883,8 @@ public class Jogo2 extends javax.swing.JFrame {
         TF7.setText("");
         TF8.setText("");
         TF9.setText("");
+        
+        darFoco();
     }//GEN-LAST:event_btnCleanActionPerformed
     public void darFoco(){
         btnVoltar.requestFocus();
@@ -939,10 +968,9 @@ public class Jogo2 extends javax.swing.JFrame {
                 
         ArrayList <String> salvar = new ArrayList();
         while(linha != null){
-           if(linha.equals(lerJogador(0)) == false && linha.equals(lerJogador(1)) == false ){
+            if(linha.equals(lerJogador(0)) == false && linha.equals(lerJogador(1)) == false ){
                salvar.add(linha);
-               }
-           
+            }
            linha = br.readLine();
         }
         
@@ -1002,116 +1030,148 @@ public class Jogo2 extends javax.swing.JFrame {
     }
      
     private void CheckWin() throws FileNotFoundException, IOException{
-    String aux1, aux2, aux3;
-    String aux4, aux5, aux6;
-    String aux7, aux8, aux9;
-    
-    aux1 = TF1.getText(); aux2 = TF2.getText(); aux3 = TF3.getText();
-    aux4 = TF4.getText(); aux5 = TF5.getText(); aux6 = TF6.getText();
-    aux7 = TF7.getText(); aux8 = TF8.getText(); aux9 = TF9.getText();
-    
-    darFoco();
-    String jogador1 = lerJogador(0);
-    String jogador2 = lerJogador(1);
-
-    if(aux1.equals(v.xis) && aux2.equals(v.xis) && aux3.equals(v.xis)){
-        JOptionPane.showMessageDialog(null,"Vencedor: "+jogador1);
-        //System.exit(0);
-        guardarVencedor(jogador1);
-        guardarPerdedor(jogador2);
-    }
-    else if(aux1.equals(v.xis) && aux4.equals(v.xis) && aux7.equals(v.xis)){
-        JOptionPane.showMessageDialog(null,"Vencedor! "+jogador1) ;
-        //System.exit(0);
-        guardarVencedor(jogador1);
-        guardarPerdedor(jogador2);
-    }
-    else if(aux1.equals(v.xis) && aux5.equals(v.xis) && aux9.equals(v.xis)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
-        guardarVencedor(jogador1);
-        guardarPerdedor(jogador2);
-        //System.exit(0);
-    }
-    else if(aux2.equals(v.xis) && aux5.equals(v.xis) && aux8.equals(v.xis)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
-        //System.exit(0);
-        guardarVencedor(jogador1);
-        guardarPerdedor(jogador2);
-    }
-    else if(aux3.equals(v.xis) && aux6.equals(v.xis) && aux9.equals(v.xis)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
-        //System.exit(0);
-        guardarVencedor(jogador1);
-        guardarPerdedor(jogador2);
-    }
-    else if(aux3.equals(v.xis) && aux5.equals(v.xis) && aux7.equals(v.xis)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
-        //System.exit(0);
-        guardarVencedor(jogador1);
-        guardarPerdedor(jogador2);
-    }
-    else if(aux4.equals(v.xis) && aux5.equals(v.xis) && aux6.equals(v.xis)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
-        //System.exit(0);
-        guardarVencedor(jogador1);
-        guardarPerdedor(jogador2);
-    }
-    else if(aux7.equals(v.xis) && aux8.equals(v.xis) && aux9.equals(v.xis)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
-        //System.exit(0);
-        guardarVencedor(jogador1);
-        guardarPerdedor(jogador2);
-    }
         
-    // CHECK PARA JOGADOR O
-    else if(aux1.equals(v.bolinha) && aux2.equals(v.bolinha) && aux3.equals(v.bolinha)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-        //System.exit(0);
-        guardarVencedor(jogador2);
-        guardarPerdedor(jogador1);
-    }
-    else if(aux1.equals(v.bolinha) && aux4.equals(v.bolinha) && aux7.equals(v.bolinha)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-        //System.exit(0);
-        guardarVencedor(jogador2);
-        guardarPerdedor(jogador1);
-    }
-    else if(aux1.equals(v.bolinha) && aux5.equals(v.bolinha) && aux9.equals(v.bolinha)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-        //System.exit(0);
-        guardarVencedor(jogador2);
-        guardarPerdedor(jogador1);
-    }
-    else if(aux2.equals(v.bolinha) && aux5.equals(v.bolinha) && aux8.equals(v.bolinha)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-        //System.exit(0);
-        guardarVencedor(jogador2);
-        guardarPerdedor(jogador1);
-    }
-    else if(aux3.equals(v.bolinha) && aux6.equals(v.bolinha) && aux9.equals(v.bolinha)){
-        JOptionPane.showMessageDialog(null,"Vencedor! "+jogador2);
-        //System.exit(0);
-        guardarVencedor(jogador2);
-        guardarPerdedor(jogador1);
-    }
-    else if(aux3.equals(v.bolinha) && aux5.equals(v.bolinha) && aux7.equals(v.bolinha)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-        //System.exit(0);
-        guardarVencedor(jogador2);
-        guardarPerdedor(jogador1);
-    }
-    else if(aux4.equals(v.bolinha) && aux5.equals(v.bolinha) && aux6.equals(v.bolinha)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-        //System.exit(0);
-        guardarVencedor(jogador2);
-        guardarPerdedor(jogador1);
-    }
-    else if(aux7.equals(v.bolinha) && aux8.equals(v.bolinha) && aux9.equals(v.bolinha)){
-        JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-        //System.exit(0);
-        guardarVencedor(jogador2);
-        guardarPerdedor(jogador1);
-    }
+        String aux1, aux2, aux3;
+        String aux4, aux5, aux6;
+        String aux7, aux8, aux9;
+
+        aux1 = TF1.getText(); aux2 = TF2.getText(); aux3 = TF3.getText();
+        aux4 = TF4.getText(); aux5 = TF5.getText(); aux6 = TF6.getText();
+        aux7 = TF7.getText(); aux8 = TF8.getText(); aux9 = TF9.getText();
+
+        darFoco();
+        String jogador1 = lerJogador(0);
+        String jogador2 = lerJogador(1);
+
+        if(aux1.equals(v.xis) && aux2.equals(v.xis) && aux3.equals(v.xis)){
+            JOptionPane.showMessageDialog(null,"Vencedor: "+jogador1);
+            //System.exit(0);
+            guardarVencedor(jogador1);
+            guardarPerdedor(jogador2);
+            btnProx.doClick();
+        }
+        else if(aux1.equals(v.xis) && aux4.equals(v.xis) && aux7.equals(v.xis)){
+            JOptionPane.showMessageDialog(null,"Vencedor! "+jogador1) ;
+            //System.exit(0);
+            guardarVencedor(jogador1);
+            guardarPerdedor(jogador2);
+            btnProx.doClick();
+        }
+        else if(aux1.equals(v.xis) && aux5.equals(v.xis) && aux9.equals(v.xis)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
+            guardarVencedor(jogador1);
+            guardarPerdedor(jogador2);
+            btnProx.doClick();
+            //System.exit(0);
+        }
+        else if(aux2.equals(v.xis) && aux5.equals(v.xis) && aux8.equals(v.xis)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
+            //System.exit(0);
+            guardarVencedor(jogador1);
+            guardarPerdedor(jogador2);
+            btnProx.doClick();
+        }
+        else if(aux3.equals(v.xis) && aux6.equals(v.xis) && aux9.equals(v.xis)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
+            //System.exit(0);
+            guardarVencedor(jogador1);
+            guardarPerdedor(jogador2);
+            btnProx.doClick();
+        }
+        else if(aux3.equals(v.xis) && aux5.equals(v.xis) && aux7.equals(v.xis)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
+            //System.exit(0);
+            guardarVencedor(jogador1);
+            guardarPerdedor(jogador2);
+            btnProx.doClick();
+        }
+        else if(aux4.equals(v.xis) && aux5.equals(v.xis) && aux6.equals(v.xis)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
+            //System.exit(0);
+            guardarVencedor(jogador1);
+            guardarPerdedor(jogador2);
+            btnProx.doClick();
+        }
+        else if(aux7.equals(v.xis) && aux8.equals(v.xis) && aux9.equals(v.xis)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
+            //System.exit(0);
+            guardarVencedor(jogador1);
+            guardarPerdedor(jogador2);
+            btnProx.doClick();
+        }
+
+        // CHECK PARA JOGADOR O
+        else if(aux1.equals(v.bolinha) && aux2.equals(v.bolinha) && aux3.equals(v.bolinha)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
+            //System.exit(0);
+            guardarVencedor(jogador2);
+            guardarPerdedor(jogador1);
+            btnProx.doClick();
+        }
+        else if(aux1.equals(v.bolinha) && aux4.equals(v.bolinha) && aux7.equals(v.bolinha)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
+            //System.exit(0);
+            guardarVencedor(jogador2);
+            guardarPerdedor(jogador1);
+            btnProx.doClick();
+        }
+        else if(aux1.equals(v.bolinha) && aux5.equals(v.bolinha) && aux9.equals(v.bolinha)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
+            //System.exit(0);
+            guardarVencedor(jogador2);
+            guardarPerdedor(jogador1);
+            btnProx.doClick();
+        }
+        else if(aux2.equals(v.bolinha) && aux5.equals(v.bolinha) && aux8.equals(v.bolinha)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
+            //System.exit(0);
+            guardarVencedor(jogador2);
+            guardarPerdedor(jogador1);
+            btnProx.doClick();
+        }
+        else if(aux3.equals(v.bolinha) && aux6.equals(v.bolinha) && aux9.equals(v.bolinha)){
+            JOptionPane.showMessageDialog(null,"Vencedor! "+jogador2);
+            //System.exit(0);
+            guardarVencedor(jogador2);
+            guardarPerdedor(jogador1);
+            btnProx.doClick();
+        }
+        else if(aux3.equals(v.bolinha) && aux5.equals(v.bolinha) && aux7.equals(v.bolinha)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
+            //System.exit(0);
+            guardarVencedor(jogador2);
+            guardarPerdedor(jogador1);
+            btnProx.doClick();
+        }
+        else if(aux4.equals(v.bolinha) && aux5.equals(v.bolinha) && aux6.equals(v.bolinha)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
+            //System.exit(0);
+            guardarVencedor(jogador2);
+            guardarPerdedor(jogador1);
+            btnProx.doClick();
+        }
+        else if(aux7.equals(v.bolinha) && aux8.equals(v.bolinha) && aux9.equals(v.bolinha)){
+            JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
+            //System.exit(0);
+            guardarVencedor(jogador2);
+            guardarPerdedor(jogador1);
+            btnProx.doClick();
+        }
+        else if(v.o == 4 && v.x == 5){
+            JOptionPane.showMessageDialog(null, "Deu Velha! =/" );
+            TF1.setText("");
+            TF2.setText("");
+            TF3.setText("");
+            TF4.setText("");
+            TF5.setText("");
+            TF6.setText("");
+            TF7.setText("");
+            TF8.setText("");
+            TF9.setText("");
+            limparVariaveis();
+            darFoco();
+
+        }
         
     }
     

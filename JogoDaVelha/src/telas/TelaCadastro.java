@@ -40,7 +40,6 @@ public class TelaCadastro extends javax.swing.JFrame {
         btnVoltar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         lblQuantidade = new javax.swing.JLabel();
-        btnStart = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -71,13 +70,6 @@ public class TelaCadastro extends javax.swing.JFrame {
 
         lblQuantidade.setText("0");
 
-        btnStart.setText("Começar");
-        btnStart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStartActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,9 +85,7 @@ public class TelaCadastro extends javax.swing.JFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(btnVoltar)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnOk)
-                            .addGap(69, 69, 69)
-                            .addComponent(btnStart))
+                            .addComponent(btnOk))
                         .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +120,6 @@ public class TelaCadastro extends javax.swing.JFrame {
                 .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnStart)
                     .addComponent(btnOk)
                     .addComponent(btnVoltar))
                 .addGap(36, 36, 36))
@@ -158,8 +147,23 @@ public class TelaCadastro extends javax.swing.JFrame {
     } catch (IOException ex) {
         Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
       }
+    txtNome.requestFocus();
     txtNome.setText("");
     txtIdade.setText("");
+    if (valor == 0){
+        JOptionPane.showMessageDialog(null, "Tudo pronto! Vamos começar!");
+        Jogo2 jogo = new Jogo2();
+            try {
+                    jogo.abrirPlayer1(lerJogador(0));
+                    jogo.abrirPlayer2(lerJogador(1));
+            } catch (IOException ex) {
+                Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            jogo.setLocationRelativeTo(null);
+            jogo.setVisible(true);
+            this.dispose();
+    
+    }
     }//GEN-LAST:event_btnOkActionPerformed
 
     private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
@@ -167,20 +171,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         ini.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVoltarActionPerformed
-
-    private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-        Jogo2 jogo = new Jogo2();
-        try {
-                jogo.abrirPlayer1(lerJogador(0));
-                jogo.abrirPlayer2(lerJogador(1));
-        } catch (IOException ex) {
-            Logger.getLogger(TelaCadastro.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        jogo.setLocationRelativeTo(null);
-        jogo.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnStartActionPerformed
-    public void abrir(String quantidade){
+        public void abrir(String quantidade){
         lblQuantidade.setText(quantidade);
     }
     public String lerJogador(int i) throws FileNotFoundException, IOException{
@@ -238,7 +229,6 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOk;
-    private javax.swing.JButton btnStart;
     private javax.swing.JButton btnVoltar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
