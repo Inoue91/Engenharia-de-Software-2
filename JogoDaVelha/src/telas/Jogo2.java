@@ -355,7 +355,7 @@ public class Jogo2 extends javax.swing.JFrame {
                 vencedor = quantidadeVencedor();
                 perdedor = quantidadePerdedor();
             }
-            if(inicial == 0 && vencedor == 3 && perdedor < 5){ //Gerador de podium para 4 jogadores
+            if(inicial == 0 && vencedor == 3 && perdedor == 3){ //Gerador de podium para 4 jogadores
                 System.out.println(" perdedor: " + perdedor);
                 apagarGanhador();
                 Podium podium = new Podium();
@@ -364,73 +364,55 @@ public class Jogo2 extends javax.swing.JFrame {
                 this.dispose();
             }
             if(inicial == 8 && vencedor == 1){  // primeira entrada 8 jogadores
-                System.out.println("1 - inicial:" + inicial);
-                System.out.println("1 - vencedor" + vencedor);
                 apagarTxt();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
-                System.out.println("1 - inicial:" + inicial);
-                System.out.println("1 - vencedor" + vencedor);
             }
             if(inicial == 6 && vencedor == 2){  // segunda entrada 8 jogadores
-                
-                System.out.println("2 - inicial:" + inicial);
-                System.out.println("2 - vencedor" + vencedor);
                 apagarTxt();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
-                System.out.println("2 - inicial:" + inicial);
-                System.out.println("2 - vencedor" + vencedor);
             }
             if(inicial == 4 && vencedor == 3){  // terceira entrada 8 jogadores
-                System.out.println("3 - inicial:" + inicial);
-                System.out.println("3 - vencedor" + vencedor);
                 apagarTxt();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
-                System.out.println("3 - inicial:" + inicial);
-                System.out.println("3 - vencedor" + vencedor);
             }
             if(inicial == 2 && vencedor == 4){  // quarta entrada 8 jogadores
-                System.out.println("4 - inicial:" + inicial);
-                System.out.println("4 - vencedor" + vencedor);
                 apagarTxt();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
-                System.out.println("4 - inicial:" + inicial);
-                System.out.println("4 - vencedor" + vencedor);
             }
             if(inicial == 0 && vencedor == 5){  // rodada dos ganhadores 8 jogadores
-                System.out.println("5 - inicial:" + inicial);
-                System.out.println("5 - vencedor" + vencedor);
                 apagarGanhador();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
-                System.out.println("5 - inicial:" + inicial);
-                System.out.println("5 - vencedor" + vencedor);
                 
             }
-            /*if(inicial == 0 && vencedor == 2){  // primeira entrada 8 jogadores
-                System.out.println("6 - inicial:" + inicial);
-                System.out.println("6 - vencedor" + vencedor);
+            if(inicial == 0 && vencedor == 4 && perdedor == 6){  // primeira entrada 8 jogadores
                 apagarGanhador();
                 lblJogador1.setText(lerJogador(0));
                 lblJogador2.setText(lerJogador(1));
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
-                System.out.println("entrou");
-            }*/
-            
+            }
+            if(inicial == 0 && vencedor == 3 && perdedor == 7){
+                apagarGanhador();
+                Podium podium = new Podium();
+                podium.setLocationRelativeTo(null);
+                podium.setVisible(true);
+                this.dispose();
+            }
             }catch (IOException ex) {
                 Logger.getLogger(Jogo2.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -967,10 +949,12 @@ public class Jogo2 extends javax.swing.JFrame {
         String linha = br.readLine();
                 
         ArrayList <String> salvar = new ArrayList();
+        int cont = 0;
         while(linha != null){
-            if(linha.equals(lerJogador(0)) == false && linha.equals(lerJogador(1)) == false ){
+            if(cont != 0 && cont != 1){
                salvar.add(linha);
             }
+            cont+=1;
            linha = br.readLine();
         }
         
