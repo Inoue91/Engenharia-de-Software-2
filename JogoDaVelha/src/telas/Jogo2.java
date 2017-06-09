@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package telas;
 
 import java.awt.event.KeyEvent;
@@ -329,8 +324,6 @@ public class Jogo2 extends javax.swing.JFrame {
             
             if(inicial == 2 && vencedor == 1){      // Condição para 2 jogadores
                 apagarTxt();
-                System.out.println(vencedor);
-                System.out.println(inicial);
                 inicial = quantidadeArquivo();
                 vencedor = quantidadeVencedor();
             }
@@ -356,7 +349,6 @@ public class Jogo2 extends javax.swing.JFrame {
                 perdedor = quantidadePerdedor();
             }
             if(inicial == 0 && vencedor == 3 && perdedor == 3){ //Gerador de podium para 4 jogadores
-                System.out.println(" perdedor: " + perdedor);
                 apagarGanhador();
                 Podium podium = new Podium();
                 podium.setLocationRelativeTo(null);
@@ -919,14 +911,16 @@ public class Jogo2 extends javax.swing.JFrame {
         BufferedReader br = new BufferedReader(fr);
         
         String linha = br.readLine();
-                
         ArrayList <String> salvar = new ArrayList();
+        int cont = 0;
         while(linha != null){
-            if(linha.equals(lerJogador(0)) == false && linha.equals(lerJogador(1)) == false ){
-                salvar.add(linha);
-           }
+            if(cont != 0 && cont != 1){
+               salvar.add(linha);
+            }
+            cont+=1;
            linha = br.readLine();
         }
+            
         br.close();
         fr.close();
         
@@ -1029,14 +1023,12 @@ public class Jogo2 extends javax.swing.JFrame {
 
         if(aux1.equals(v.xis) && aux2.equals(v.xis) && aux3.equals(v.xis)){
             JOptionPane.showMessageDialog(null,"Vencedor: "+jogador1);
-            //System.exit(0);
             guardarVencedor(jogador1);
             guardarPerdedor(jogador2);
             btnProx.doClick();
         }
         else if(aux1.equals(v.xis) && aux4.equals(v.xis) && aux7.equals(v.xis)){
             JOptionPane.showMessageDialog(null,"Vencedor! "+jogador1) ;
-            //System.exit(0);
             guardarVencedor(jogador1);
             guardarPerdedor(jogador2);
             btnProx.doClick();
@@ -1046,39 +1038,33 @@ public class Jogo2 extends javax.swing.JFrame {
             guardarVencedor(jogador1);
             guardarPerdedor(jogador2);
             btnProx.doClick();
-            //System.exit(0);
         }
         else if(aux2.equals(v.xis) && aux5.equals(v.xis) && aux8.equals(v.xis)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
-            //System.exit(0);
             guardarVencedor(jogador1);
             guardarPerdedor(jogador2);
             btnProx.doClick();
         }
         else if(aux3.equals(v.xis) && aux6.equals(v.xis) && aux9.equals(v.xis)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
-            //System.exit(0);
             guardarVencedor(jogador1);
             guardarPerdedor(jogador2);
             btnProx.doClick();
         }
         else if(aux3.equals(v.xis) && aux5.equals(v.xis) && aux7.equals(v.xis)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
-            //System.exit(0);
             guardarVencedor(jogador1);
             guardarPerdedor(jogador2);
             btnProx.doClick();
         }
         else if(aux4.equals(v.xis) && aux5.equals(v.xis) && aux6.equals(v.xis)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
-            //System.exit(0);
             guardarVencedor(jogador1);
             guardarPerdedor(jogador2);
             btnProx.doClick();
         }
         else if(aux7.equals(v.xis) && aux8.equals(v.xis) && aux9.equals(v.xis)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador1);
-            //System.exit(0);
             guardarVencedor(jogador1);
             guardarPerdedor(jogador2);
             btnProx.doClick();
@@ -1087,56 +1073,48 @@ public class Jogo2 extends javax.swing.JFrame {
         // CHECK PARA JOGADOR O
         else if(aux1.equals(v.bolinha) && aux2.equals(v.bolinha) && aux3.equals(v.bolinha)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-            //System.exit(0);
             guardarVencedor(jogador2);
             guardarPerdedor(jogador1);
             btnProx.doClick();
         }
         else if(aux1.equals(v.bolinha) && aux4.equals(v.bolinha) && aux7.equals(v.bolinha)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-            //System.exit(0);
             guardarVencedor(jogador2);
             guardarPerdedor(jogador1);
             btnProx.doClick();
         }
         else if(aux1.equals(v.bolinha) && aux5.equals(v.bolinha) && aux9.equals(v.bolinha)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-            //System.exit(0);
             guardarVencedor(jogador2);
             guardarPerdedor(jogador1);
             btnProx.doClick();
         }
         else if(aux2.equals(v.bolinha) && aux5.equals(v.bolinha) && aux8.equals(v.bolinha)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-            //System.exit(0);
             guardarVencedor(jogador2);
             guardarPerdedor(jogador1);
             btnProx.doClick();
         }
         else if(aux3.equals(v.bolinha) && aux6.equals(v.bolinha) && aux9.equals(v.bolinha)){
             JOptionPane.showMessageDialog(null,"Vencedor! "+jogador2);
-            //System.exit(0);
             guardarVencedor(jogador2);
             guardarPerdedor(jogador1);
             btnProx.doClick();
         }
         else if(aux3.equals(v.bolinha) && aux5.equals(v.bolinha) && aux7.equals(v.bolinha)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-            //System.exit(0);
             guardarVencedor(jogador2);
             guardarPerdedor(jogador1);
             btnProx.doClick();
         }
         else if(aux4.equals(v.bolinha) && aux5.equals(v.bolinha) && aux6.equals(v.bolinha)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-            //System.exit(0);
             guardarVencedor(jogador2);
             guardarPerdedor(jogador1);
             btnProx.doClick();
         }
         else if(aux7.equals(v.bolinha) && aux8.equals(v.bolinha) && aux9.equals(v.bolinha)){
             JOptionPane.showMessageDialog(null, "Vencedor! "+jogador2);
-            //System.exit(0);
             guardarVencedor(jogador2);
             guardarPerdedor(jogador1);
             btnProx.doClick();
